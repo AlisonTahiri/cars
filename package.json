@@ -6,9 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typegen": "pnpx sanity@latest schema extract && pnpx sanity@latest typegen generate"
   },
   "dependencies": {
+    "@sanity/client": "^6.24.1",
     "@sanity/icons": "^3.5.5",
     "@sanity/image-url": "1",
     "@sanity/vision": "3",
