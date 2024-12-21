@@ -6,14 +6,14 @@ import ImageViewer from "./ImageViewer";
 
 type Props = {
   images: ImageProps[];
+  viewTransitionsName: string;
 };
 
-export default function CustomGallery({ images }: Props) {
+export default function CustomGallery({ images, viewTransitionsName }: Props) {
   const [selectedImage, setSelectedImage] = useState<string>(
     images[0].src as string
   );
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-
   const handleOnClicked = (src: string, index: number) => {
     setSelectedImage(src);
     setCurrentImageIndex(index);
@@ -40,6 +40,7 @@ export default function CustomGallery({ images }: Props) {
           selectedImage={selectedImage}
           onNext={handleNextImage}
           onPrev={handlePreviousImage}
+          viewTransitionsName={viewTransitionsName}
         />
       )}
       <div className="hidden sm:flex flex-row flex-wrap justify-between gap-3 px-0">

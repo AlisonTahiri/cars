@@ -32,7 +32,10 @@ async function CarDetails({ params }: { params: Params }) {
       {/* <div className="bg-green-200 self-end rounded-md px-2 italic">
         {car?.category?.title}
       </div> */}
-      <CustomGallery images={images} />
+      <CustomGallery
+        images={images}
+        viewTransitionsName={car.images ? car.images[0]._key : ""}
+      />
 
       <div className="self-start">
         <h1 className="text-3xl font-bold mb-4">{car.title}</h1>

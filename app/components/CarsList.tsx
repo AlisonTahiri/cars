@@ -1,7 +1,8 @@
+"use client";
 import { ALL_CARS_QUERYResult, CAR_SEARCH_QUERYResult } from "@/sanity.types";
 import { urlFor } from "@/sanity/lib/image";
+import { Link } from "next-view-transitions";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 type Props = {
@@ -24,6 +25,7 @@ function CarsList({ cars }: Props) {
                 width={300}
                 height={200}
                 priority
+                view-transition-name={car.images[0]._key}
               />
             )}
           </div>
