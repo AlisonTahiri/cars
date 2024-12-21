@@ -6,7 +6,7 @@ import Link from "next/link";
 export default async function Home() {
   const cars = await getAllCars();
   return (
-    <div className="flex flex-col mx-auto max-w-3xl">
+    <div className="flex flex-col gap-2 sm:gap-3">
       {cars.map((car) => (
         <Link
           key={car._id}

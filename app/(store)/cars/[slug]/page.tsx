@@ -28,7 +28,7 @@ async function CarDetails({ params }: { params: Params }) {
     })) || [];
 
   return (
-    <div className="container mx-auto flex flex-col gap-2 items-center max-w-lg md:max-w-2xl lg:max-w-3xl pt-2">
+    <div className="container flex flex-col gap-2 sm:gap-4 items-center">
       {/* <div className="bg-green-200 self-end rounded-md px-2 italic">
         {car?.category?.title}
       </div> */}

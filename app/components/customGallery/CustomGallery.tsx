@@ -42,14 +42,14 @@ export default function CustomGallery({ images }: Props) {
           onPrev={handlePreviousImage}
         />
       )}
-      <div className="hidden sm:flex flex-row flex-wrap gap-3 justify-center px-3 md:px-0">
+      <div className="hidden sm:flex flex-row flex-wrap justify-between gap-3 px-0">
         {images.map((image, index) => (
           <Image
             key={index}
             {...image}
             priority={index === 0}
             alt={image.alt}
-            className="border-4 border-solid border-blue-900  w-28 lg:w-40 cursor-pointer hover:border-blue-500"
+            className={`border-4 border-solid border-blue-900 flex-1 w-28 cursor-pointer hover:transform hover:scale-105 transition-transform ${currentImageIndex === index ? "border-blue-700" : ""}`}
             onClick={() => handleOnClicked(image.src as string, index)}
             width={160}
             height={120}
