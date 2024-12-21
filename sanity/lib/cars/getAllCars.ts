@@ -4,7 +4,12 @@ import { sanityFetch } from "../live";
 export async function getAllCars() {
   const ALL_CARS_QUERY = defineQuery(`
    *[_type == "product"]
-   | order(name asc) 
+   | order(name asc){
+     ...,
+     category->{
+       title,
+     }
+   }
     `);
 
   try {

@@ -12,7 +12,6 @@ export const HeaderLink = ({ href, name }: Props) => {
   const pathname = usePathname();
   const subpath = pathname.match(/[^\/]+/g);
   const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
-  console.log({ pathname });
 
   return (
     <Link
