@@ -407,11 +407,88 @@ export type CAR_BY_SLUG_QUERYResult = {
   sold?: boolean;
 } | null;
 
+// Source: ./sanity/lib/cars/searchCarsByTitle.ts
+// Variable: CAR_SEARCH_QUERY
+// Query: *[_type == "product" && title match $searchParam]     | order(name asc)
+export type CAR_SEARCH_QUERYResult = Array<{
+  _id: string;
+  _type: "product";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  make?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "carMake";
+  };
+  year?: number;
+  price?: number;
+  fuel?: "Benzine-Gaz" | "Benzine" | "Nafte";
+  transmission?: "Automatike" | "Manuale";
+  ngjyra?: "Blu" | "E Bardhe" | "E Kuqe" | "E Verdhe" | "E Zeze" | "Gri";
+  slug?: Slug;
+  images?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  kilometers?: number;
+  category?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "category";
+  };
+  active?: boolean;
+  sold?: boolean;
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "\n   *[_type == \"product\"]\n   | order(name asc){\n     ...,\n     category->{\n       title,\n     }\n   }\n    ": ALL_CARS_QUERYResult;
     "\n     *[_type == \"product\" && slug.current == $slug][0]\n        ": CAR_BY_SLUG_QUERYResult;
+    "\n     *[_type == \"product\" && title match $searchParam]\n     | order(name asc) \n        ": CAR_SEARCH_QUERYResult;
   }
 }

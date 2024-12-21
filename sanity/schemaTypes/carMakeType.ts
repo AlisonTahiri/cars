@@ -5,7 +5,6 @@ export const carMakeType = defineType({
   name: "carMake",
   title: "Car Make",
   type: "document",
-  // @ts-ignore
   // icon: TagIcon,
   fields: [
     defineField({
