@@ -5,14 +5,12 @@ interface ImageViewerProps {
   selectedImage: string;
   onNext: () => void;
   onPrev: () => void;
-  viewTransitionsName: string;
 }
 
 const ImageViewer: React.FC<ImageViewerProps> = ({
   selectedImage,
   onNext,
   onPrev,
-  viewTransitionsName,
 }) => {
   return (
     <div className="flex justify-center">
@@ -27,7 +25,6 @@ const ImageViewer: React.FC<ImageViewerProps> = ({
           className="py-2 max-w-full"
           width={1018}
           height={800}
-          view-transition-name={viewTransitionsName}
         />
 
         <button
