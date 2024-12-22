@@ -16,10 +16,7 @@ function Search() {
   }, [query]);
 
   return (
-    <Form
-      action="/search"
-      className="sm:w-auto sm:flex-1 sm:mx-4 sm:mt-0 w-full mt-2"
-    >
+    <Form action="/search" className="sm:flex-1 max-w-md">
       <input
         type="text"
         name="query"

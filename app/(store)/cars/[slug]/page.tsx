@@ -40,9 +40,15 @@ async function CarDetails({ params }: { params: Params }) {
           ${car.price?.toFixed(2)} €
         </div>
 
-        <div className="text-gray-600 italic">Viti i prodhimit: {car.year}</div>
-        <div className="text-gray-600 italic">Karburanti: {car.fuel}</div>
-        <div className="text-gray-600 italic">Kilometra: {car.kilometers}</div>
+        <div className="text-gray-600 italic">
+          Viti i prodhimit: <span className="font-semibold">{car.year}</span>
+        </div>
+        <div className="text-gray-600 italic">
+          Karburanti: <span className="font-semibold">{car.fuel}</span>
+        </div>
+        <div className="text-gray-600 italic">
+          Kilometra: <span className="font-semibold">{car.kilometers}</span>
+        </div>
 
         <div className="prose max-w-none mb-6">
           {Array.isArray(car.description) && (

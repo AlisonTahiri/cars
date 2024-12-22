@@ -14,7 +14,7 @@ function CarsList({ cars }: Props) {
         <Link
           key={car._id}
           href={`/cars/${car.slug?.current}`}
-          className="p-4 text-gray-900  group flex flex-col sm:flex-row  bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
+          className="p-4 text-gray-900  group flex flex-col gap-2 sm:flex-row  bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
         >
           <div className="w-full h-full flex items-center justify-center sm:justify-start">
             {car.images?.length && (
@@ -28,11 +28,19 @@ function CarsList({ cars }: Props) {
             )}
           </div>
 
-          <div className="p-4 w-full text-center sm:text-left">
-            <h2 className="text-lg font-semibold">{car.title}</h2>
-            <div className="font-semibold text-green-800">{car.price} €</div>
-            <div>Viti {car.year}</div>
-            <div>{car.kilometers} km</div>
+          <h2 className="text-lg font-semibold text-center sm:text-left">
+            {car.title}
+          </h2>
+          <div className="w-full text-center sm:text-left flex gap-2 items-center justify-center sm:block text-gray-800">
+            <div className="font-semibold text-green-700 bg-gray-200 rounded-md px-2 py-1">
+              {car.price} €
+            </div>
+            <div className="font-semibold text-inherit bg-gray-200 rounded-md px-2 py-1">
+              Viti {car.year}
+            </div>
+            <div className="font-semibold text-inherit bg-gray-200 rounded-md px-2 py-1">
+              {car.kilometers} km
+            </div>
           </div>
         </Link>
       ))}
