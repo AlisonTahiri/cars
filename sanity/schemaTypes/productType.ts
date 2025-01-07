@@ -1,3 +1,4 @@
+import { TransferIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const productType = defineType({
@@ -5,8 +6,8 @@ export const productType = defineType({
   title: "Product",
   type: "document",
 
-  // @ts-ignore
-  // icon: TrolleyIcon,
+  // @ts-expect-error trolley icon error
+  icon: TransferIcon,
   fields: [
     defineField({
       name: "title",

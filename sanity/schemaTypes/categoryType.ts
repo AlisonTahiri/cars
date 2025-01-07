@@ -1,12 +1,12 @@
-// import { TagIcon } from "@sanity/icons";
+import { TagIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const categoryType = defineType({
   name: "category",
   title: "Category",
   type: "document",
-  // @ts-ignore
-  // icon: TagIcon,
+  // @ts-expect-error tag icon error
+  icon: TagIcon,
   fields: [
     defineField({
       name: "title",

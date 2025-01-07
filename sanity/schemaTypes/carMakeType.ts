@@ -1,11 +1,12 @@
-// import { TagIcon } from "@sanity/icons";
+import { TagIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const carMakeType = defineType({
   name: "carMake",
   title: "Car Make",
   type: "document",
-  // icon: TagIcon,
+  // @ts-expect-error tag icon error
+  icon: TagIcon,
   fields: [
     defineField({
       name: "title",
