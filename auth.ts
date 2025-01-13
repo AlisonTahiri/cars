@@ -11,20 +11,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           `*[_type == "app-user" && email == $email][0]`,
           { email: user.email }
         );
-        console.log({ user });
 
         if (!existingUser) {
           const newUser = {
             _type: "app-user",
-            id: user.id, // Or generate a unique ID
             name: user.name,
             email: user.email,
             profilePicSrc: user.image,
           };
           await client.create(newUser);
-          console.log("User created in Sanity:", newUser);
-        } else {
-          console.log("User already exists in sanity");
         }
 
         return true;
