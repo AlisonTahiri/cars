@@ -10,6 +10,7 @@
     "typegen": "pnpx sanity@latest schema extract && pnpx sanity@latest typegen generate"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.1",
     "@sanity/client": "^6.24.1",
     "@sanity/icons": "^3.5.5",
     "@sanity/image-url": "1",

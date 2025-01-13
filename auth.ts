@@ -15,6 +15,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if (!existingUser) {
           const newUser = {
             _type: "app-user",
+            _id: user.id,
             name: user.name,
             email: user.email,
             profilePicSrc: user.image,

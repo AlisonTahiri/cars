@@ -22,5 +22,22 @@ export const userType = defineType({
       name: "profilePicSrc",
       type: "string",
     }),
+    defineField({
+      name: "favoriteCars",
+      type: "array",
+      of: [
+        {
+          name: "favoriteCar",
+          title: "Favorite Car",
+          type: "document",
+          fields: [
+            defineField({
+              name: "carId",
+              type: "string",
+            }),
+          ],
+        },
+      ],
+    }),
   ],
 });

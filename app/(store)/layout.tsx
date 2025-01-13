@@ -4,6 +4,7 @@ import "../globals.css";
 import { Header } from "../components/Header";
 import { SanityLive } from "@/sanity/lib/live";
 import { ViewTransitions } from "next-view-transitions";
+import { SessionProvider } from "next-auth/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,15 +28,19 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <Header />
-          <div className="mx-auto max-w-2xl lg:max-w-4xl px-2">{children}</div>
-          <SanityLive />
-        </body>
-      </html>
+      <SessionProvider>
+        <html lang="en">
+          <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          >
+            <Header />
+            <div className="mx-auto max-w-2xl lg:max-w-4xl px-2">
+              {children}
+            </div>
+            <SanityLive />
+          </body>
+        </html>
+      </SessionProvider>
     </ViewTransitions>
   );
 }

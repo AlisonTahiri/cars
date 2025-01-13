@@ -68,6 +68,21 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type AppUser = {
+  _id: string;
+  _type: "app-user";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  email?: string;
+  profilePicSrc?: string;
+  favoriteCars?: Array<{
+    carId?: string;
+    _key: string;
+  }>;
+};
+
 export type Product = {
   _id: string;
   _type: "product";
@@ -256,7 +271,7 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Product | Category | CarMake | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | AppUser | Product | Category | CarMake | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./sanity/lib/cars/getAllCars.ts
 // Variable: ALL_CARS_QUERY

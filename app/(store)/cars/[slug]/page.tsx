@@ -1,4 +1,5 @@
 import CustomGallery from "@/app/components/customGallery/CustomGallery";
+import LikeButton from "@/app/components/LikeButton";
 // import Gallery from "@/app/components/Gallery";
 import { getAllCars } from "@/sanity/lib/cars/getAllCars";
 import { client } from "@/sanity/lib/client";
@@ -33,6 +34,7 @@ async function CarDetails({ params }: { params: Params }) {
         {car?.category?.title}
       </div> */}
       <CustomGallery images={images} />
+      <LikeButton carId={car._id} />
 
       <div className="self-start">
         <h1 className="text-3xl font-bold mb-4">{car.title}</h1>

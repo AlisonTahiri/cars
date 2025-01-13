@@ -1,7 +1,12 @@
 import { AppUser } from "@/sanity.types";
 import { create } from "zustand";
 
-export const useUserStore = create((set) => ({
+type UserStore = {
+  user: AppUser | null;
+  setUser: (user: AppUser | null) => void;
+};
+
+export const useUserStore = create<UserStore>((set) => ({
   user: null,
-  setUser: (user: AppUser) => set({ user }),
+  setUser: (user) => set({ user }),
 }));
